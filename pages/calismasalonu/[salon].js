@@ -57,7 +57,7 @@ export default function Salon(){
 export async function getStaticPaths (){
     return{
         paths:[
-            {params:{salon:""}}
+            {params:{salon:"404"}}
         ],
         fallback:true
     }

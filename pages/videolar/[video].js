@@ -29,7 +29,7 @@ export default function Video(){
 export async function getStaticPaths (){
     return{
         paths:[
-            {params:{video:""}}
+            {params:{video:"404"}}
         ],
         fallback:true
     }
