@@ -1,0 +1,181 @@
+.list{
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+}
+.card{
+    margin: auto;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    background-color: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    flex-direction: column;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.header{
+    height: 50px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px darkgray solid;
+}
+.image{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.info{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+.h2{
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.h3{
+    font-size: 16px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.ct{
+    display: flex;
+    margin: 5px;
+    justify-content: space-between;
+    margin-top: auto;
+}
+.lbl{
+    font-size: 16px;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction:column ;
+}
+.container{
+    background-color: white;
+    display: flex;
+    flex: 1;
+    border-radius: 5px;
+}
+.left{
+    display: flex;
+    flex: .3;
+    flex-direction: column;
+    border-right: 1px darkgray solid;
+    padding: 5px;
+}
+.right{
+    display: flex;
+    flex:.7;
+    flex-direction: column;
+    padding: 5px;
+}
+.sec{
+    display: flex;
+    padding: 5px;
+    height: 40px;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px darkgray solid;
+    border-top: 1px darkgray solid;
+    cursor: pointer;
+}
+.sec2{
+    display: flex;
+    padding: 5px;
+    height: 40px;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px darkgray solid;
+    border-top: 1px darkgray solid;
+    margin-top: auto;
+}
+.icon{
+    width: 32px;
+    height: 32px;
+    background-color: lightsteelblue;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.icon2{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.plate{
+    display: flex;
+    flex: 1;
+    padding: 5px;
+    margin: 5px;
+    border-left: 1px darkgray solid;
+}
+.sohbet{
+    display: flex;
+    flex: 1;
+    padding: 5px;
+    flex-direction: column;
+    overflow-y: visible;
+    overflow-x: hidden;
+}
+.sohbet::-webkit-scrollbar{
+    width: 10px;
+}
+.sohbet::-webkit-scrollbar-track{
+    background-color: lightsteelblue;
+    border-radius: 10px;
+}
+.sohbet::-webkit-scrollbar-thumb{
+    background-color: dodgerblue;
+    border-radius: 10px;
+}
+.chat{
+    display: flex;
+    border-top:1px darkgray solid;
+    border-bottom:1px darkgray solid;
+    height: 40px;
+    padding: 5px;
+}
+.input{
+    display: flex;
+    flex: 1;
+    background-color: lightsteelblue;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: medium;
+}
+.msgbox{
+    display: flex;
+    margin: 5px;
+}
+.ppicon{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 32px;
+}
+.msg{
+    margin-left: 5px;
+    margin-right: 5px;
+    display: flex;
+    flex: 1;
+}
+.lblmsg{
+    display: flex;
+    flex: 1;
+    text-indent: 10px;
+    text-align: justify;
+}

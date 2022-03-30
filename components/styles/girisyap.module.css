@@ -1,0 +1,39 @@
+.content{
+    display: flex;
+    max-width: 400px;
+    background-color: white;
+    flex: 1;
+    margin: auto;
+    border-radius: 5px;
+    padding: 10px;
+    flex-direction: column;
+}
+.h1{
+    text-align: center;
+    width: 100%;
+    font-size: 24px;
+}
+.input{
+    display: flex;
+    flex: 1;
+    margin: 5px;
+    padding: 5px;
+    border: 1px darkgray solid;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.button{
+    margin: auto;
+    padding: 5px;
+}
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px;
+    padding: 5px;
+}
+.a{
+    cursor: pointer;
+    text-decoration: underline;
+}
