@@ -1,5 +1,6 @@
 import styles from '../components/styles/girisyap.module.css'
 import {useState,useEffect} from 'react'
+import cookies from 'js-cookie';
 export default function GirisYap(){
     const [p,setp]=useState("girisyap");
     return(
@@ -18,13 +19,17 @@ export default function GirisYap(){
                 <h1 className={styles.h1}>Giriş Yap</h1>
                 <input className={styles.input} placeholder="Kullanıcı adı"></input>
                 <input className={styles.input} placeholder="Şifre" type="password"></input>
-                <button className={styles.button}>Giriş Yap</button>
+                <button className={styles.button} onClick={girisyapclick}>Giriş Yap</button>
                 <div className={styles.footer}>
                     <div className={styles.a} onClick={()=>{setp("uyeol")}}>Üye Ol</div>
                     <div className={styles.a}>Şifremi Unuttum</div>
                 </div>
             </div>
         )
+        function girisyapclick(){
+            cookies.set("log","true",{expires:24*90})
+            window.location.href="/"
+        }
     }
     function UyeOlPage(){
         return(
