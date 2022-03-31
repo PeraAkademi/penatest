@@ -23,7 +23,7 @@ export default function Menu({href}){
         <div className={styles.ustmenu}>
             <div className={styles.menubtn} onClick={()=>{window.location.href="/"}}>
                 <Image src="/icons/logowhite.svg" width={80} height={80} alt="logo"></Image>
-                <h1 className={styles.h1}>Pena</h1>
+                <h1 className={styles.h1}>Per a</h1>
             </div>
             <div className={styles.menubtn}>
                 <h1 className={styles.h1}>{link}</h1>
