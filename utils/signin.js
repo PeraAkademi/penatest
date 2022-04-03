@@ -1,6 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { doc,getDoc,getDocs,collection,query,where,setDoc,getFirestore } from "firebase/firestore"; 
 
+var aes256 = require('aes256')
+
 const firebaseConfig = {
   apiKey: "AIzaSyCN4x-lrKvdmOkMsjJgDDaZo4NrUrrsafg",
   authDomain: "pera-1df14.firebaseapp.com",
@@ -14,7 +16,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db =getFirestore(app)
 
-async function SignIn(username,password,email,name){
+async function SignIn(username,password,email,name,secret){
     const docRef = doc(db,"users",username.toString())
     const docSnap = await getDoc(docRef)
     if(docSnap.exists()){

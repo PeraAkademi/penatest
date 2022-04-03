@@ -3,8 +3,10 @@ import {useState,useEffect} from 'react'
 import cookies from 'js-cookie';
 import { SignIn } from '../utils/signin';
 import { LoginCheck } from '../utils/logincheck';
+import { async } from '@firebase/util';
 
 var md5 = require('md5')
+
 
 export default function GirisYap(){
     const [p,setp]=useState("girisyap");

@@ -4,12 +4,13 @@
     background-color: white;
     border-radius: 5px;
     flex-direction: column;
-    min-height: 700px;
+    min-height: 800px;
     height: auto;
 }
 .iframe{
     display: flex;
     flex: 1;
+    min-height: 400px;
     max-height: 700px;
     border-radius: 5px;
 }
@@ -19,6 +20,7 @@
     border-bottom: 1px lightgray solid;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
 }
 .toolbtn{
     display: flex;
@@ -51,11 +53,64 @@
 .notes{
     display: flex;
     padding: 10px;
+    flex-wrap: wrap;
+}
+.note,.noteblur{
+    background-color: orange;
+    width: 200px;
+    padding: 10px;
+    padding-top: 30px;
+    margin: 10px;
+    position: relative;
+    border-top-left-radius: 50px;
+    cursor: default;
+}
+.noteblur{
+    filter:blur(5px)
+}
+.delete{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, .7);
+    border-radius: 5px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.iconx{
+    width: 16px;
+    height: 16px;
+    margin: auto;
+    display: flex;
 }
 .h2{
     font-weight: normal;
     font-size: medium;
     text-indent: 20px;
+}
+.h22, .h22blur{
+    margin-top: 5px;
+    font-weight: normal;
+    font-size: medium;
+    text-indent: 20px;
+    cursor: default;
+}
+.h22blur{
+    filter: blur(5px);
+}
+.h11, .h11blur{
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 20px;
+    text-indent: 20px;
+    cursor: default;
+}
+.h11blur{
+    filter: blur(5px);
 }
 .list{
     display: flex;
@@ -74,19 +129,19 @@
     margin-right: auto;
     margin-top: 10px;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 .thumb{
     display: flex;
     width: 100%;
     height: 175px;
-    cursor: pointer;
 }
 .info{
     margin: 5px;
     display: flex;
     flex: 1;
-    cursor: default;
     flex-direction: column;
+
 }
 .header{
     text-indent: 10px;
@@ -98,7 +153,12 @@
     -webkit-box-orient: vertical;
     font-size: 16px;
 }
-.label{
+.title{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.label, .lbldate{
     margin: 5px;
     text-indent: 10px;
     overflow: hidden;
@@ -108,4 +168,22 @@
     -webkit-box-orient: vertical;
     font-size: 16px;
     font-weight: normal;
+}
+.lbldate{
+    text-align: right;
+    margin-top: auto;
+    font-size: 12px;
+}
+.input{
+    display: flex;
+    flex: 1;
+    border: 1px darkgray solid;
+    background-color: lightgray;
+    height: 40px;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 16px;
+}
+.input::placeholder{
+    color: black;
 }

@@ -61,11 +61,23 @@
     display: flex;
     flex-direction:column ;
 }
-.container{
+.container,.container2{
     background-color: white;
     display: flex;
     flex: 1;
     border-radius: 5px;
+}
+.container2{
+    position: relative;
+    filter:blur(5px)
+}
+.loginbtn{
+    position: absolute;
+    top: 0;
+    left:50%;
+    z-index: 2;
+    width: 200px;
+    height: 50px;
 }
 .left{
     display: flex;
@@ -79,6 +91,7 @@
     flex:.7;
     flex-direction: column;
     padding: 5px;
+    position: relative;
 }
 .sec{
     display: flex;
@@ -151,9 +164,9 @@
 .input{
     display: flex;
     flex: 1;
-    background-color: lightsteelblue;
+    background-color: lightgray;
     border-radius: 5px;
-    padding-left: 5px;
+    padding-left: 10px;
     padding-right: 5px;
     font-size: medium;
 }
@@ -172,10 +185,37 @@
     margin-right: 5px;
     display: flex;
     flex: 1;
+    flex-direction: column;
 }
-.lblmsg{
+.lblmsg,.lblname,.lbldate{
     display: flex;
     flex: 1;
     text-indent: 10px;
     text-align: justify;
+}
+.lblname{
+    font-weight: bold;
+}
+.lbldate{
+    color: darkgray;
+    margin-left: auto;
+}
+.scrlbtm{
+    position: absolute;
+    bottom: 50px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: dodgerblue;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.arrow{
+    width: 30px;
+    height: 30px;
+    transform: rotateZ(90deg);
+    display: flex;
 }
