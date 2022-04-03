@@ -72,7 +72,7 @@ export default function Salon({s}){
                     
                     {t.map((x)=>{
                         return(
-                        <div className={styles.sec}>
+                        <div className={styles.sec} key={"t"+x.un}>
                             <Image className={styles.icon} width={32} height={32} src="/pp.jpg"></Image>
                             <div className={styles.plate}>
                                 {x.un}
@@ -82,7 +82,7 @@ export default function Salon({s}){
                     })}
                     {stu.map((x)=>{
                         return(
-                        <div className={styles.sec}>
+                        <div className={styles.sec} key={"s"+x.un}>
                             <Image className={styles.icon} width={32} height={32} src="/pp.jpg"></Image>
                             <div className={styles.plate}>
                                 {x.un}
@@ -100,7 +100,7 @@ export default function Salon({s}){
                     <div id='sohbet' className={styles.sohbet} onScroll={scrlcheck}>
                         {msg.map((m)=>{
                             return(
-                                <MSG fromdate={m.fromdate} frompp={m.frompp} frommsg={m.frommsg} fromname={m.fromname}></MSG>
+                                <MSG key={m.fromdate+m.fromname+m.frommsg} fromdate={m.fromdate} frompp={m.frompp} frommsg={m.frommsg} fromname={m.fromname}></MSG>
                             )
                         })}
                     </div>
