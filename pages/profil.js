@@ -115,7 +115,7 @@ export default function Profil(){
 
     )
     function logout(){
-        cookies.set("log")
+        cookies.set("login")
         cookies.set("username")
         cookies.set("password")
         cookies.set("pp")
