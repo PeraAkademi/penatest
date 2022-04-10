@@ -18,7 +18,7 @@ async function LoginCheck(username,password){
     const docRef=doc(db,"users",username.toString())
     const docSnap = await getDoc(docRef)
     if(password==docSnap.data().password){
-        cookies.set("log","true",{expires:24*90})
+        cookies.set("login","true",{expires:24*90})
         cookies.set("username",docSnap.data().username,{expires:24*90})
         cookies.set("password",docSnap.data().password,{expires:24*90})
         cookies.set("pp","pp.jpg",{expires:24*90})

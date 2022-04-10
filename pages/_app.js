@@ -7,7 +7,7 @@ import cookies from 'js-cookie'
 
 function MyApp({ Component, pageProps }) {
   const { asPath } = useRouter();
-  const [login,setlogin]=useState(cookies.get("log")||"false")
+  const [login,setlogin]=useState(cookies.get("login")||"false")
   useEffect(()=>{
     if(login=="false" && asPath!="/girisyap"){
       window.location.href="/girisyap"
