@@ -22,10 +22,15 @@ export default function FreeMod(){
                     )
                 })}
             </div>
+            {player&&
             <div className={styles.container2}>
                 <iframe className={styles.iframe} src={player} allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
             </div>
+            }
+
+
             <div className={styles.container}>
+
                 <div>
                     Ea ullamco ex laborum in ipsum tempor. Aute consequat amet aute qui dolor eiusmod dolore. Et laborum qui officia labore excepteur excepteur quis sunt ut non enim sunt tempor.
 

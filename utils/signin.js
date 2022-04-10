@@ -16,7 +16,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db =getFirestore(app)
 
-async function SignIn(username,password,email,name,secret){
+async function SignIn(username,password,email,name,school,phone){
     const docRef = doc(db,"users",username.toString())
     const docSnap = await getDoc(docRef)
     if(docSnap.exists()){
@@ -36,7 +36,9 @@ async function SignIn(username,password,email,name,secret){
                 name,
                 createTime:date,
                 admin:false,
-                teacher:false
+                teacher:false,
+                school,
+                phone
             });
             alert("Kullanıcı başarıyla oluşturuldu")
             window.location.href="/girisyap"

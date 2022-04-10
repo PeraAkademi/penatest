@@ -16,6 +16,10 @@ export default function Menu({href}){
             setlink("Giriş Yap")
         }else if(href.startsWith("/profil")){
             setlink("Profilim")
+        }else if(href.startsWith("/freemod")){
+            setlink("Free Mod")
+        }else if(href.startsWith("/rehberlik")){
+            setlink("Rehberlik")
         }
         else{
 
@@ -48,7 +52,7 @@ export default function Menu({href}){
                         <Image src="/icons/materyalwhite.svg" width={20} height={20}></Image>
                         <h1 className={styles.h1sub1}>Materyaller</h1>
                     </div>
-                    <div className={styles.subbtn}>
+                    <div className={styles.subbtn} onClick={()=>{window.location.href="/rehberlik"}}>
                         <Image src="/icons/rehberlikwhite.svg" width={20} height={20}></Image>
                         <h1 className={styles.h1sub1}>Rehberlik Servisi</h1>
                     </div>
