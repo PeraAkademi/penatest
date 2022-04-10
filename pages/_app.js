@@ -2,6 +2,7 @@ import '../styles/globals.css'
 import Menu from '../components/menu'
 import {useRouter} from 'next/router'
 import {useState,useEffect} from 'react'
+import Head from 'next/head'
 import cookies from 'js-cookie'
 
 function MyApp({ Component, pageProps }) {
@@ -16,6 +17,8 @@ function MyApp({ Component, pageProps }) {
   },[])
   return (
     <>
+    <Head>
+    </Head>
     <Menu href={asPath}></Menu>
     <Component {...pageProps} />
     </>

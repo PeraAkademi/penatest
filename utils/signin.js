@@ -34,7 +34,9 @@ async function SignIn(username,password,email,name,secret){
                 email,
                 password,
                 name,
-                createTime:date
+                createTime:date,
+                admin:false,
+                teacher:false
             });
             alert("Kullanıcı başarıyla oluşturuldu")
             window.location.href="/girisyap"

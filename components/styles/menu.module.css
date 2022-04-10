@@ -11,6 +11,9 @@
     justify-content: flex-start;
     align-items: center;
     z-index: 1000;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
 }
 .menubtn{
     position: relative;

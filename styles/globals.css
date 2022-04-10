@@ -54,6 +54,7 @@ button{
   margin-top: 20px;
   position: relative;
 }
+
 .content3{
   width: 90%;
   display: flex;
@@ -69,4 +70,13 @@ button{
   margin-top: 20px;
   position: relative;
   overflow: hidden;
+}
+.content5{
+  width: 90%;
+  max-width: 900px;
+  display: flex;
+  margin:auto;
+  margin-top: 20px;
+  position: relative;
+  flex-direction: column;
 }

@@ -52,11 +52,11 @@ export default function Menu({href}){
                         <Image src="/icons/rehberlikwhite.svg" width={20} height={20}></Image>
                         <h1 className={styles.h1sub1}>Rehberlik Servisi</h1>
                     </div>
-                    <div className={styles.subbtn}>
+                    <div className={styles.subbtn} onClick={()=>{window.location.href="/freemod"}}>
                         <Image src="/icons/serbestwhite.svg" width={20} height={20}></Image>
                         <h1 className={styles.h1sub1}>Free Mod</h1>
                     </div>
-                    <div className={styles.subbtn}>
+                    <div className={styles.subbtn} onClick={()=>{window.location.href="/profil"}}>
                         <Image src="/icons/profilwhite.svg" width={20} height={20}></Image>
                         <h1 className={styles.h1sub1}>Profilim</h1>
                     </div>

@@ -52,11 +52,11 @@ export default function Index(){
                     <Image src="/icons/rehberlik.svg" width={100} height={100} alt="video"></Image>
                     <h2 className={styles.h2}>Rehberlik Servisi</h2>
                 </div>
-                <div className={styles.secbtn2}>
+                <div className={styles.secbtn2} onClick={()=>{window.location.href="/freemod"}}>
                     <Image src="/icons/serbest.svg" width={100} height={100} alt="video"></Image>
                     <h2 className={styles.h2}>Free Mod</h2>
                 </div>
-                <div className={styles.secbtn2}>
+                <div className={styles.secbtn2} onClick={()=>{window.location.href="/profil"}}>
                     <Image src="/icons/profil.svg" width={100} height={100} alt="video"></Image>
                     <h2 className={styles.h2}>Profilim</h2>
 
