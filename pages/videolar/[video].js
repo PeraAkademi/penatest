@@ -14,7 +14,39 @@ export default function Video({v}){
     const [tdis,settdis]=useState("none")
     var timestamp = vid.date*1000
     var d = new Date(timestamp)
-    var t = d.getHours()+":"+d.getMinutes()+" "+d.getDay()+"/"+d.getMonth()+"/"+d.getFullYear()
+    var gun=d.getDay().toString()
+    var dakika = d.getMinutes().toString()
+    var saat=d.getHours().toString()
+    var ay=d.getMonth().toString()
+    if(gun.length==1){
+        gun="0"+gun
+    }else if(gun.length==0){
+        gun="00"+gun
+    }else{
+        gun=gun
+    }
+    if(dakika.length==0){
+        dakika="00"+dakika
+    }else if(dakika.length==1){
+        dakika="0"+dakika
+    }else{
+        dakika=dakika
+    }
+    if(saat.length==0){
+        saat="00"+saat
+    }else if(saat.length==1){
+        saat="0"+saat
+    }else{
+        saat=saat
+    }
+    if(ay.length==0){
+        ay="00"+ay
+    }else if(ay.length==1){
+        ay="0"+ay
+    }else{
+        ay=ay
+    }
+    var t = saat+":"+dakika+" "+gun+"/"+ay+"/"+d.getFullYear()
     useEffect(()=>{
         if(v && !vget){
             videoget()
@@ -144,15 +176,22 @@ export default function Video({v}){
         const db =getFirestore(app)
         const videoRef = doc(db,"videos",v)
         const vss= await getDoc(videoRef)
-        const notdb = vss.data().notes.map((x)=>{
-            if(x.un==user){
-                return{
-                    un:x.un.toString(),
-                    n:x.n.toString()
+        try {
+            const notdb = vss.data().notes.map((x)=>{
+                if(x.un==user){
+                    return{
+                        un:x.un.toString(),
+                        n:x.n.toString()
+                    }
                 }
-            }
-        })
-        setnot(notdb)
+            })
+            setnot(notdb)
+        } catch (error) {
+            const notdb=[]
+            setnot(notdb)
+        }
+
+
         setvideo(vss.data())
         setvget(true)
     }

@@ -50,6 +50,7 @@ export default function GirisYap(){
                 <input id='name' className={styles.input} placeholder="Adınız-soyadınız"></input>
                 <input id='school' className={styles.input} placeholder="Liseniz" type="text"></input>
                 <input id='phone' className={styles.input} placeholder="Telefon numaranız" type="number"></input>
+                <input id='code' className={styles.input} placeholder="Ürün kodunuz"></input>
                 <button className={styles.button} onClick={uyeolclick}>Üye Ol</button>
                 <div className={styles.footer}>
                     <div className={styles.a} onClick={()=>{setp("girisyap")}}>
@@ -69,6 +70,7 @@ export default function GirisYap(){
             let name = document.getElementById("name").value
             let school= document.getElementById("school").value
             let phone = document.getElementById("phone").value
+            let code = document.getElementById("code").value
             if(rpassword==password){
                 if(username==""){
                     alert("Lütfen kullanıcı adınızı giriniz")
@@ -82,9 +84,11 @@ export default function GirisYap(){
                     alert("Lütfen lisenizi giriniz")
                 }else if(phone==""){
                     alert("Lütfen telefon numaranızı giriniz")
+                }else if (code==""){
+                    alert("Lütfen ürün kodunuzu giriniz")
                 }
                 else{
-                    SignIn(username,password,email,name,school,phone)
+                    SignIn(username,password,email,name,school,phone,code)
                 }
             }else{
                 alert("Şifreleriniz uyuşmuyor")

@@ -16,7 +16,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db =getFirestore(app)
 
-async function SignIn(username,password,email,name,school,phone){
+async function SignIn(username,password,email,name,school,phone,code){
     const docRef = doc(db,"users",username.toString())
     const docSnap = await getDoc(docRef)
     if(docSnap.exists()){
@@ -28,20 +28,37 @@ async function SignIn(username,password,email,name,school,phone){
         if(qss.docs.map((doc)=>doc.data()).length>0){
             alert("Bu email adresine kayıtlı bir hesap zaten var")
         }else{
-            const date=Date.now()/1000
-            await setDoc(doc(db, "users", username.toString()), {
-                username,
-                email,
-                password,
-                name,
-                createTime:date,
-                admin:false,
-                teacher:false,
-                school,
-                phone
-            });
-            alert("Kullanıcı başarıyla oluşturuldu")
-            window.location.href="/girisyap"
+            const codeRef=doc(db,"codes",code)
+            const css= await getDoc(codeRef)
+            if(css.exists()){
+                let used = css.data().used
+                if(used){
+                    alert("Bu ürün kodu daha önce kullanılmış")
+                }else{
+                    const date=Date.now()/1000
+                    await setDoc(doc(db,"codes",code),{
+                        used:true,
+                        usedby:username,
+                        useddate:date
+                    })
+                    await setDoc(doc(db, "users", username.toString()), {
+                        username,
+                        email,
+                        password,
+                        name,
+                        createTime:date,
+                        admin:false,
+                        teacher:false,
+                        school,
+                        phone
+                    });
+                    alert("Kullanıcı başarıyla oluşturuldu")
+                    window.location.href="/girisyap"
+                }
+            }else{
+                alert("Geçersiz ürün kodu girdiniz")
+            }
+
         }
 
     }
