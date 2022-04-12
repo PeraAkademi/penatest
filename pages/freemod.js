@@ -1,19 +1,39 @@
 import styles from '../components/styles/freemod.module.css'
 import { useEffect,useState } from 'react'
+import cookies from 'js-cookie'
 import { initializeApp } from "firebase/app";
-import { collection, orderBy, query, getDocs,getFirestore,limit } from "firebase/firestore";
+import { collection, orderBy, query, getDocs,getFirestore,limit,doc,getDoc,addDoc } from "firebase/firestore";
 export default function FreeMod(){
     const [player,setplayer]=useState()
     const [playlist,setplaylist]=useState(Array)
     const [getlist,setgetlist]=useState(false)
+    const [admin,setadmin]=useState(false)
+    const [cadmin,setcadmin]=useState(false)
+    const [user,setuser]=useState(cookies.get("username"))
+    const [add,setadd]=useState(false)
     useEffect(()=>{
         if(!getlist){
             playlistget()
+        }
+        if(!cadmin){
+            getadmin()
         }
     },[])
     return(
         <div className='content5'>
             <div className={styles.container}>
+                {admin&&
+                <div className={styles.card} onClick={()=>{
+                    if(!add){
+                        setadd(true)
+                    }else{
+                        setadd(false)
+                    }
+                }}>
+                    +
+                </div>
+                }
+
                 {playlist.map((p)=>{
                     return(
                     <div key={p.link} className={styles.card} onClick={()=>{setplayer(p.link)}}>
@@ -22,9 +42,17 @@ export default function FreeMod(){
                     )
                 })}
             </div>
+            {add&&
+            <div className={styles.container2} style={{flexDirection:'column'}}>
+                <input id='name' className={styles.input} placeholder='Liste adı'></input>
+                <input id='link' className={styles.input} placeholder='Spotify linki'></input>
+                <button onClick={ekle}>Ekle</button>
+            </div>
+            }
+
             {player&&
             <div className={styles.container2}>
-                <iframe className={styles.iframe} src={player} allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                <iframe className={styles.iframe} src={`${player}?utm_source=generator`} allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
             </div>
             }
 
@@ -97,6 +125,46 @@ Commodo velit aute veniam Lorem quis anim qui occaecat. Incididunt dolore enim c
             </div>
         </div>
     )
+    async function ekle(){
+        const firebaseConfig = {
+            apiKey: "AIzaSyCN4x-lrKvdmOkMsjJgDDaZo4NrUrrsafg",
+            authDomain: "pera-1df14.firebaseapp.com",
+            projectId: "pera-1df14",
+            storageBucket: "pera-1df14.appspot.com",
+            messagingSenderId: "572044304954",
+            appId: "1:572044304954:web:8f698e2ac8ba04eefe8b03",
+            measurementId: "G-2VSMBNZGL7"
+          };
+        const app = initializeApp(firebaseConfig);
+        const db =getFirestore(app)
+        const date=Date.now()/1000
+        const link= document.getElementById("link").value
+        const name= document.getElementById("name").value
+        const docRef= await addDoc(collection(db,"playlist"),{
+            link,
+            name
+        })
+        alert("Liste başarıyla eklendi")
+        window.location.href="/freemod"
+    }
+    async function getadmin(){
+        const firebaseConfig = {
+            apiKey: "AIzaSyCN4x-lrKvdmOkMsjJgDDaZo4NrUrrsafg",
+            authDomain: "pera-1df14.firebaseapp.com",
+            projectId: "pera-1df14",
+            storageBucket: "pera-1df14.appspot.com",
+            messagingSenderId: "572044304954",
+            appId: "1:572044304954:web:8f698e2ac8ba04eefe8b03",
+            measurementId: "G-2VSMBNZGL7"
+          };
+        const app = initializeApp(firebaseConfig);
+        const db =getFirestore(app)
+        const userRef=doc(db,"users",user)
+        const uss = await getDoc(userRef)
+        const a = uss.data().admin
+        setadmin(a)
+        setcadmin(true)
+    }
     async function playlistget(){
         const firebaseConfig = {
             apiKey: "AIzaSyCN4x-lrKvdmOkMsjJgDDaZo4NrUrrsafg",

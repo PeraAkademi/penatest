@@ -13,12 +13,15 @@ export default function VideoCard({name,info,id,date,link}){
     return(
         <div className={styles.card} onClick={()=>{window.location.href=`/videolar/${id}`}}>
             <div className={styles.thumb}>
-                <iframe className={styles.iframe2} src={`https://www.youtube.com/embed/${link}`}></iframe>
+                <iframe className={styles.iframe2} width={295} src={`https://www.youtube.com/embed/${link}`}></iframe>
             </div>
             <div className={styles.info}>
                 <h1 className={styles.header}>{name}</h1>
                 <h2 className={styles.label}>{info}</h2>
                 <h2 className={styles.lbldate}>{dt}</h2>
+            </div>
+            <div className={styles.click}>
+                
             </div>
         </div>
     )

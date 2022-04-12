@@ -30,3 +30,11 @@
     height: 320px;
     transition: .3s;
 }
+.input{
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    border-bottom: 1px darkgray solid;
+    font-size: 16px;
+    background-color: transparent;
+}
