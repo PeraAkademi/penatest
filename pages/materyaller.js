@@ -52,7 +52,7 @@ export default function Materyaller(){
                     return(
                         <div key={f.filename+f.sharedby+"12"} className={styles.list} style={{display:f12}}>
                             {f.sinif=="12"&&
-                                <div className={styles.file} onClick={()=>{window.location.href=`http://peraakademi.click/materyaller/${f.filename}`}}>
+                                <div className={styles.file} onClick={()=>{window.location.href=`http://perakademi.click/materyaller/${f.filename}`}}>
                                     <div className={styles.name}>
                                         {f.filename}
                                     </div>
@@ -73,7 +73,7 @@ export default function Materyaller(){
                     return(
                         <div key={f.filename+f.sharedby+"11"}  className={styles.list} style={{display:f11}} >
                             {f.sinif=="11"&&
-                                <div className={styles.file} onClick={()=>{window.location.href=`http://peraakademi.click/materyaller/${f.filename}`}}>
+                                <div className={styles.file} onClick={()=>{window.location.href=`http://perakademi.click/materyaller/${f.filename}`}}>
                                     <div className={styles.name}>
                                         {f.filename}
                                     </div>
@@ -94,7 +94,7 @@ export default function Materyaller(){
                     return(
                         <div key={f.filename+f.sharedby+"10"}  className={styles.list} style={{display:f10}} >
                             {f.sinif=="10"&&
-                                <div className={styles.file} onClick={()=>{window.location.href=`http://peraakademi.click/materyaller/${f.filename}`}}>
+                                <div className={styles.file} onClick={()=>{window.location.href=`http://perakademi.click/materyaller/${f.filename}`}}>
                                     <div className={styles.name}>
                                         {f.filename}
                                     </div>
@@ -115,7 +115,7 @@ export default function Materyaller(){
                     return(
                         <div key={f.filename+f.sharedby+"10"}  className={styles.list} style={{display:f9}}>
                             {f.sinif=="9"&&
-                                <div className={styles.file} onClick={()=>{window.location.href=`http://peraakademi.click/materyaller/${f.filename}`}}>
+                                <div className={styles.file} onClick={()=>{window.location.href=`http://perakademi.click/materyaller/${f.filename}`}}>
                                     <div className={styles.name}>
                                         {f.filename}
                                     </div>
