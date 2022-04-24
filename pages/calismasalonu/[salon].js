@@ -17,6 +17,7 @@ export default function Salon({s}){
     const [t,sett]=useState(Array)
     const [msg,setmsg]=useState(Array)
     const [stu,setstu]=useState(Array)
+    const [te,sette]=useState(cookies.get("t")||"false")
     useEffect(()=>{
 
     },[])
@@ -180,9 +181,15 @@ export default function Salon({s}){
         const db =getFirestore(app)
         const ld={un:user,pp:pp}
         const roomRef = doc(db,"rooms",s)
-        await updateDoc(roomRef,{
-            students:arrayUnion(ld)
-        })
+        if(t=="true"){
+            await updateDoc(roomRef,{
+                teachers:arrayUnion(ld)
+            })
+        }else{
+            await updateDoc(roomRef,{
+                students:arrayUnion(ld)
+            })
+        }
         const unsub = onSnapshot(doc(db,"rooms",s),(doc=>{
             const tlist = doc.data().teachers
             const mlist =doc.data().messages

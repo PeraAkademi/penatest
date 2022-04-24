@@ -115,10 +115,10 @@ export default function Profil(){
 
     )
     function logout(){
-        cookies.set("login")
-        cookies.set("username")
-        cookies.set("password")
-        cookies.set("pp")
+        cookies.set("login","false")
+        cookies.set("username","")
+        cookies.set("password","")
+        cookies.set("pp","")
         window.location.href="/girisyap"
     }
     function NameSet(){

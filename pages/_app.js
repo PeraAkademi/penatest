@@ -18,6 +18,8 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
     <Head>
+      <title>Pera Akademi</title>
+      <link rel='icon' href='pp.jpg'></link>
     </Head>
     <Menu href={asPath}></Menu>
     <Component {...pageProps} />

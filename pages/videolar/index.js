@@ -5,13 +5,18 @@ import cookies from 'js-cookie'
 import { initializeApp } from "firebase/app"
 import { collection, orderBy, query, getDocs,getFirestore,limit,doc,getDoc,addDoc,setDoc } from "firebase/firestore";
 
-export default function Videolar({videos}){
+export default function Videolar(){
     const [admin,setadmin]=useState(false)
     const [cadmin,setcadmin]=useState(false)
     const [user,setuser]=useState(cookies.get("username"))
+    const [videos,setvideos]=useState([])
+    const [getvideos,setgetvideos]=useState(false)
     useEffect(()=>{
         if(!cadmin){
             getadmin()
+        }
+        if(!getvideos){
+            getvideo()
         }
     },[])
     return(
@@ -89,34 +94,33 @@ export default function Videolar({videos}){
         alert("Video başarıyla eklendi")
         window.location.href="/videolar"
     }
-}
-export async function getStaticProps() {
-    const firebaseConfig = {
-        apiKey: "AIzaSyCN4x-lrKvdmOkMsjJgDDaZo4NrUrrsafg",
-        authDomain: "pera-1df14.firebaseapp.com",
-        projectId: "pera-1df14",
-        storageBucket: "pera-1df14.appspot.com",
-        messagingSenderId: "572044304954",
-        appId: "1:572044304954:web:8f698e2ac8ba04eefe8b03",
-        measurementId: "G-2VSMBNZGL7"
-      };
-    const app = initializeApp(firebaseConfig);
-    const db =getFirestore(app)
-    const videosRef = collection(db,"videos")
-    const q = query(videosRef,orderBy("date","desc"),limit(50))
-    const qss = await getDocs(q)
-    const data = qss.docs.map((d)=>{
-        return(
-            {
-                id:d.id,
-                name:d.data().name,
-                info:d.data().info,
-                date:d.data().date,
-                link:d.data().link
-            }
-        )
-    })
-    return{
-        props:{videos:data}
+    async function getvideo(){
+        const firebaseConfig = {
+            apiKey: "AIzaSyCN4x-lrKvdmOkMsjJgDDaZo4NrUrrsafg",
+            authDomain: "pera-1df14.firebaseapp.com",
+            projectId: "pera-1df14",
+            storageBucket: "pera-1df14.appspot.com",
+            messagingSenderId: "572044304954",
+            appId: "1:572044304954:web:8f698e2ac8ba04eefe8b03",
+            measurementId: "G-2VSMBNZGL7"
+          };
+        const app = initializeApp(firebaseConfig);
+        const db =getFirestore(app)
+        const videosRef = collection(db,"videos")
+        const q = query(videosRef,orderBy("date","desc"),limit(50))
+        const qss = await getDocs(q)
+        const data = qss.docs.map((d)=>{
+            return(
+                {
+                    id:d.id,
+                    name:d.data().name,
+                    info:d.data().info,
+                    date:d.data().date,
+                    link:d.data().link
+                }
+            )
+        })
+        setvideos(data)
+        setgetvideos(true)
     }
 }

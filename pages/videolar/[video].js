@@ -190,8 +190,6 @@ export default function Video({v}){
             const notdb=[]
             setnot(notdb)
         }
-
-
         setvideo(vss.data())
         setvget(true)
     }

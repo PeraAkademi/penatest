@@ -20,6 +20,8 @@ export default function Menu({href}){
             setlink("Free Mod")
         }else if(href.startsWith("/rehberlik")){
             setlink("Rehberlik")
+        }else if(href.startsWith("/materyaller")){
+            setlink("Materyaller")
         }
         else{
 
@@ -48,7 +50,7 @@ export default function Menu({href}){
                         <Image src="/icons/kitapwhite.svg" width={20} height={20}></Image>
                         <h1 className={styles.h1sub1}>Çalışma Salonu</h1>
                     </div>
-                    <div className={styles.subbtn}>
+                    <div className={styles.subbtn} onClick={()=>{window.location.href="/materyaller"}}>
                         <Image src="/icons/materyalwhite.svg" width={20} height={20}></Image>
                         <h1 className={styles.h1sub1}>Materyaller</h1>
                     </div>

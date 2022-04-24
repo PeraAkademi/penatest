@@ -35,7 +35,7 @@ export default function Index(){
                     <h2 className={styles.h2}>Çalışma Salonu</h2>
                 </div>
                 }
-                <div className={styles.secbtn}>
+                <div className={styles.secbtn} onClick={()=>{window.location.href="/materyaller"}}>
                     <Image src="/icons/materyal.svg" width={100} height={100} alt="video"></Image>
                     <h2 className={styles.h2}>Materyaller</h2>
                 </div>
@@ -48,7 +48,7 @@ export default function Index(){
                 </div>
             </div>
             <div className={styles.sec}>
-                <div className={styles.secbtn2}>
+                <div className={styles.secbtn2} onClick={()=>{window.location.href="/rehberlik"}}>
                     <Image src="/icons/rehberlik.svg" width={100} height={100} alt="video"></Image>
                     <h2 className={styles.h2}>Rehberlik Servisi</h2>
                 </div>
@@ -65,29 +65,34 @@ export default function Index(){
         </div>
     )
     async function roomget(){
-        const firebaseConfig = {
-            apiKey: "AIzaSyCN4x-lrKvdmOkMsjJgDDaZo4NrUrrsafg",
-            authDomain: "pera-1df14.firebaseapp.com",
-            projectId: "pera-1df14",
-            storageBucket: "pera-1df14.appspot.com",
-            messagingSenderId: "572044304954",
-            appId: "1:572044304954:web:8f698e2ac8ba04eefe8b03",
-            measurementId: "G-2VSMBNZGL7"
-            };
-        const app = initializeApp(firebaseConfig)
-        const db =getFirestore(app)
-        const q = query(collection(db,"rooms"),where("students","array-contains",{un:user,pp:pp}))
-        const rss = await getDocs(q)
-        const data=rss.docs.map((doc)=>{
-            return{
-                id:doc.id
+        try {
+            const firebaseConfig = {
+                apiKey: "AIzaSyCN4x-lrKvdmOkMsjJgDDaZo4NrUrrsafg",
+                authDomain: "pera-1df14.firebaseapp.com",
+                projectId: "pera-1df14",
+                storageBucket: "pera-1df14.appspot.com",
+                messagingSenderId: "572044304954",
+                appId: "1:572044304954:web:8f698e2ac8ba04eefe8b03",
+                measurementId: "G-2VSMBNZGL7"
+                };
+            const app = initializeApp(firebaseConfig)
+            const db =getFirestore(app)
+            const q = query(collection(db,"rooms"),where("students","array-contains",{un:user,pp:pp}))
+            const rss = await getDocs(q)
+            const data=rss.docs.map((doc)=>{
+                return{
+                    id:doc.id
+                }
+            })
+            if(data.length>0){
+                setw8room(true)
+                setw8(data.map((d)=>d.id).toString())
             }
-        })
-        if(data.length>0){
-            setw8room(true)
-            setw8(data.map((d)=>d.id).toString())
+            setroomcheck(true)
+        } catch (error) {
+            
         }
-        setroomcheck(true)
+
 
     }
 }

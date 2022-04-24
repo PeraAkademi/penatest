@@ -35,6 +35,12 @@ async function SignIn(username,password,email,name,school,phone,code){
                 if(used){
                     alert("Bu ürün kodu daha önce kullanılmış")
                 }else{
+                    let teach =false
+                    if(code.startsWith("E")){
+                        teach=true
+                    }else{
+                        teach=false
+                    }
                     const date=Date.now()/1000
                     await setDoc(doc(db,"codes",code),{
                         used:true,
@@ -48,7 +54,7 @@ async function SignIn(username,password,email,name,school,phone,code){
                         name,
                         createTime:date,
                         admin:false,
-                        teacher:false,
+                        teacher:teach,
                         school,
                         phone
                     });

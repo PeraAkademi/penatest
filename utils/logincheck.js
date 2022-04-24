@@ -21,7 +21,8 @@ async function LoginCheck(username,password){
         cookies.set("login","true",{expires:24*90})
         cookies.set("username",docSnap.data().username,{expires:24*90})
         cookies.set("password",docSnap.data().password,{expires:24*90})
-        cookies.set("pp","pp.jpg",{expires:24*90})
+        cookies.set("pp","pp.svg",{expires:24*90})
+        cookies.set("t",docSnap.data().teacher,{expires:24*90})
         window.location.href="/"
     }else{
         alert("Kullanıcı bilgileriniz uyuşmamaktadır")
