@@ -1,0 +1,43 @@
+.content{
+    display: flex;
+    width: 100%;
+    background-color: #1a1a1a;
+    bottom: 0;
+    margin-top: auto;
+    flex-direction: column;
+    cursor: default;
+}
+.header{
+    display: flex;
+    color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px white solid;
+    padding: 10px;
+}
+.social{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 5px;
+    color: white;
+    margin-top: 5px;
+    border-bottom: 1px white solid;
+    flex-wrap: wrap;
+}
+.link{
+    display: flex;
+    flex: 1;
+    padding: 5px;
+    margin: 5px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: .3s;
+}
+.link:hover{
+    background-color: dodgerblue;
+    transition: .3s;
+}

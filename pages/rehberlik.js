@@ -3,7 +3,7 @@ import Image from 'next/image'
 import {useState, useEffect} from 'react'
 import cookies from 'js-cookie'
 import { initializeApp } from "firebase/app";
-import { getFirestore, doc, getDoc,updateDoc,arrayRemove, arrayUnion } from "firebase/firestore";
+import { getFirestore, doc, getDoc,updateDoc,arrayRemove, arrayUnion, setDoc } from "firebase/firestore";
 
 export default function Rehberlik(){
     const [program1,setprogram1]=useState([])
@@ -302,14 +302,29 @@ export default function Rehberlik(){
         const db =getFirestore(app)
         const rehRef = doc(db,"rehberlik",user)
         const vss= await getDoc(rehRef)
-        setprogram1(vss.data().pazartesi)
-        setprogram2(vss.data().sali)
-        setprogram3(vss.data().carsamba)
-        setprogram4(vss.data().persembe)
-        setprogram5(vss.data().cuma)
-        setprogram6(vss.data().cumartesi)
-        setprogram7(vss.data().pazar)
-        setgetprog(true)
+        if(vss.exists()){
+            setprogram1(vss.data().pazartesi)
+            setprogram2(vss.data().sali)
+            setprogram3(vss.data().carsamba)
+            setprogram4(vss.data().persembe)
+            setprogram5(vss.data().cuma)
+            setprogram6(vss.data().cumartesi)
+            setprogram7(vss.data().pazar)
+            setgetprog(true)
+        }else{
+            await setDoc(doc(db,"rehberlik",user),{
+                pazartesi:[],
+                sali:[],
+                carsamba:[],
+                persembe:[],
+                cuma:[],
+                cumartesi:[],
+                pazar:[]
+            })
+        }
+
+
+
     }
     async function saveprog({gun,saat,program}){
         const data = {
@@ -328,6 +343,12 @@ export default function Rehberlik(){
         const app = initializeApp(firebaseConfig)
         const db =getFirestore(app)
         const rehRef = doc(db,"rehberlik",user)
+        const rss = await getDoc(rehRef)
+        if(rss.data().length==0){
+            await setDoc(rehRef,{
+                pazartesi:{}
+            })
+        }
         if(gun=="pazartesi"){
             await updateDoc(rehRef,{
                 pazartesi:arrayUnion(data)

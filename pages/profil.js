@@ -21,7 +21,7 @@ export default function Profil(){
         }
     },[])
     return(
-        <>
+        <div style={{minHeight:'100%'}}>
         <div className='content2'>
             <div className={styles.container}>
                 <div className={styles.header}>
@@ -111,7 +111,7 @@ export default function Profil(){
         {win=="tel"&&
         <PhoneSet></PhoneSet>
         }
-        </>
+        </div>
 
     )
     function logout(){

@@ -4,6 +4,7 @@ import {useRouter} from 'next/router'
 import {useState,useEffect} from 'react'
 import Head from 'next/head'
 import cookies from 'js-cookie'
+import Footer from '../components/footer'
 
 function MyApp({ Component, pageProps }) {
   const { asPath } = useRouter();
@@ -23,6 +24,7 @@ function MyApp({ Component, pageProps }) {
     </Head>
     <Menu href={asPath}></Menu>
     <Component {...pageProps} />
+    <Footer></Footer>
     </>
   )
 
